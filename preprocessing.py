@@ -32,17 +32,18 @@ def image_trans(image,path):
     return data,target
 
 def preprocess(labels,path,batch_size):
-    data,target=[],[]
-    np.random.shuffle(labels)
-    for image in labels:
-        d,t=image_trans(image,path)
-        data+=d
-        target+=t
-        if len(data)>batch_size:
-            yield np.array(data),np.array(target)
-            data=[]
-            target=[]
-            
-    return np.array(data),np.array(target)
-    
+    while True:
+        data,target=[],[]
+        np.random.shuffle(labels)
+        for image in labels:
+            d,t=image_trans(image,path)
+            data+=d
+            target+=t
+            if len(data)>batch_size:
+                yield np.array(data),np.array(target)
+                data=[]
+                target=[]
+
+        yield np.array(data),np.array(target)
+
 
