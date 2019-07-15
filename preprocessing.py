@@ -25,14 +25,15 @@ def image_trans(image,path):
     data=[]
     target=[]
     img=cv2.imread(path+image[0])/255.0
-    for i in range(image[1][1].shape[0]):
+    img=cv2.resize(img,(224,224))
+    for i in range(len(image[1][1])):
         data.append(transform(img,image[1][1][i]))
         target.append(int(image[1][-1][i]))
     return data,target
 
 def preprocess(labels,path,batch_size):
     data,target=[],[]
-    
+    np.random.shuffle(labels)
     for image in labels:
         d,t=image_trans(image,path)
         data+=d
