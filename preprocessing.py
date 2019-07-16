@@ -8,7 +8,7 @@ import numpy as np
 import cv2
 import pickle as pkl
 import matplotlib.pyplot as plt
-
+# from keras.applications.vgg16 import preprocess_input
 
 # In[55]:
 
@@ -32,8 +32,8 @@ def image_trans(image,path):
     return data,target
 
 def preprocess(labels,path,batch_size):
+    data,target=[],[]
     while True:
-        data,target=[],[]
         np.random.shuffle(labels)
         for image in labels:
             d,t=image_trans(image,path)
