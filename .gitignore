@@ -1,4 +1,7 @@
+images_Data.zip
 Data
 SSD
 __pycache__
 .ipynb_checkpoints
+labels_nxt45.pickle
+labels_135.pickle
