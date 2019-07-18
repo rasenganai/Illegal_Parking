@@ -17,7 +17,7 @@ def create_model(input_shape):
     model.add(ks.layers.Dense(1024,activation="relu"))
     model.add(ks.layers.Dense(512,activation="relu"))
     model.add(ks.layers.Dense(128,activation="relu"))
-#     model.add(ks.layers.Dense(64,activation="relu"))
+    model.add(ks.layers.Dense(64,activation="relu"))
     model.add(ks.layers.Dense(1,activation="sigmoid"))
 
     model.compile(optimizer="adam",loss=ks.losses.binary_crossentropy,metrics=["accuracy"])
