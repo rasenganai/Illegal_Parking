@@ -44,6 +44,6 @@ def preprocess(labels,path,batch_size):
                 data=[]
                 target=[]
 
-        yield np.array(data),np.array(target)
+        #yield np.array(data),np.array(target)
 
 
