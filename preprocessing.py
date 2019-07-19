@@ -8,7 +8,7 @@ import numpy as np
 import cv2
 import pickle as pkl
 import matplotlib.pyplot as plt
-# from keras.applications.vgg16 import preprocess_input
+
 
 # In[55]:
 
@@ -39,11 +39,11 @@ def preprocess(labels,path,batch_size):
             d,t=image_trans(image,path)
             data+=d
             target+=t
-            if len(data)>batch_size:
+            if len(data)>=batch_size:
                 yield np.array(data),np.array(target)
                 data=[]
                 target=[]
 
-        yield np.array(data),np.array(target)
+#         yield np.array(data),np.array(target)
 
 
